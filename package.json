@@ -1,0 +1,60 @@
+{
+  "name": "pi-markdown-blocks",
+  "version": "0.1.0",
+  "description": "Polished, theme-aware fenced Markdown blocks for Pi, with syntax highlighting and clean clipboard support.",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi-coding-agent",
+    "markdown",
+    "codeblocks",
+    "syntax-highlighting"
+  ],
+  "license": "MIT",
+  "author": "FasalZein",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FasalZein/pi-markdown-blocks.git"
+  },
+  "homepage": "https://github.com/FasalZein/pi-markdown-blocks#readme",
+  "bugs": {
+    "url": "https://github.com/FasalZein/pi-markdown-blocks/issues"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "files": [
+    "index.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "verify": "tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck index.ts"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "dependencies": {
+    "marked": "18.0.5"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.80.6",
+    "@earendil-works/pi-tui": "0.80.6",
+    "@types/node": "24.12.4",
+    "typescript": "5.9.3"
+  }
+}
