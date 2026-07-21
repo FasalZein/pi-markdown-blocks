@@ -71,7 +71,7 @@ Mouse selection includes terminal border cells. Use Alt+C for clean code-only co
 
 ## Compatibility
 
-Tested with Pi `0.80.6` and guarded for later `0.80.x` releases. Pi currently has no public fenced-token renderer hook, so this extension isolates one reload-safe Markdown compatibility patch, disables it on shutdown, and restores the original renderer when it is topmost.
+Tested with Pi `0.80.6` and `0.81.1`. Pi currently has no public fenced-token renderer hook, so this extension checks for the private `Markdown.renderToken` capability before installing one reload-safe compatibility patch, disables it on shutdown, and restores the original renderer when it is topmost.
 
 ## Development
 

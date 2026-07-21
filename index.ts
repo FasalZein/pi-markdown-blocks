@@ -233,13 +233,8 @@ function isPatchState(value: unknown): value is PatchState {
 	);
 }
 
-// Pi 0.80 has no public fenced-token hook, so keep the private boundary isolated here.
+// Pi has no public fenced-token hook, so keep the private boundary isolated here.
 function installRenderer(getRuntimeTheme: () => RuntimeTheme | undefined) {
-	const match = /^0\.80\.(\d+)(?:-|$)/.exec(VERSION);
-	if (!match || Number(match[1]) < 6) {
-		return { installed: false as const, reason: `unsupported Pi version ${VERSION}` };
-	}
-
 	const prototype = Markdown.prototype as unknown as MarkdownRuntime;
 	const existing = prototype[PATCH_STATE];
 	if (isPatchState(existing)) {
@@ -250,7 +245,10 @@ function installRenderer(getRuntimeTheme: () => RuntimeTheme | undefined) {
 		delete prototype[PATCH_STATE];
 	}
 	if (typeof prototype.renderToken !== "function") {
-		return { installed: false as const, reason: "Pi Markdown.renderToken is unavailable" };
+		return {
+			installed: false as const,
+			reason: `Pi Markdown.renderToken is unavailable in Pi ${VERSION}`,
+		};
 	}
 
 	const original = prototype.renderToken;
