@@ -1,6 +1,6 @@
 {
   "name": "pi-markdown-blocks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Polished, theme-aware fenced Markdown blocks for Pi, with syntax highlighting and clean clipboard support.",
   "type": "module",
   "keywords": [
@@ -26,7 +26,8 @@
   "files": [
     "index.ts",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "verify": "tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck index.ts"
@@ -52,8 +53,8 @@
     }
   },
   "devDependencies": {
-    "@earendil-works/pi-coding-agent": "0.80.6",
-    "@earendil-works/pi-tui": "0.80.6",
+    "@earendil-works/pi-coding-agent": "1.5.2",
+    "@earendil-works/pi-tui": "1.5.2",
     "@types/node": "24.12.4",
     "typescript": "5.9.3"
   }

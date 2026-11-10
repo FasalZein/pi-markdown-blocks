@@ -30,6 +30,8 @@ pi install git:github.com/FasalZein/pi-markdown-blocks
 
 Restart Pi after installation. Run `/reload` after updating the extension.
 
+`pi install` installs the `marked` dependency for you. If you load a local checkout instead (a path in `packages` or `pi -e ./index.ts`), Pi does not install dependencies for local packages: run `npm install` in the checkout first, and again after any cleanup that removes `node_modules`. Otherwise Pi fails at startup with `Cannot find module 'marked'`.
+
 ## Copy a block
 
 Press **Alt+C** to select a fenced block from the latest assistant response. Use `/copyblock [n]` when Alt shortcuts are unavailable or you already know the block number.
@@ -71,7 +73,7 @@ Mouse selection includes terminal border cells. Use Alt+C for clean code-only co
 
 ## Compatibility
 
-Tested with Pi `0.80.6` and `0.81.1`. Pi currently has no public fenced-token renderer hook, so this extension checks for the private `Markdown.renderToken` capability before installing one reload-safe compatibility patch, disables it on shutdown, and restores the original renderer when it is topmost.
+Tested with Pi `0.80.6`, `0.81.1`, and `1.5.1`. Pi currently has no public fenced-token renderer hook, so this extension checks for the private `Markdown.renderToken` capability before installing one reload-safe compatibility patch, disables it on shutdown, and restores the original renderer when it is topmost.
 
 ## Development
 
